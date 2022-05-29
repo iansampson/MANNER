@@ -22,7 +22,7 @@ class Tester:
         self.args        = args
         self.criterion   = self.select_loss().to(args.device)
         self.stft_loss   = MultiResolutionSTFTLoss(factor_sc=args.stft_sc_factor, factor_mag=args.stft_mag_factor).to(args.device)
-        self.kwargs      = {"matching": args.dataset['matching'], "sample_rate":16000}
+        self.kwargs      = {"matching": args.dataset['matching'], "sample_rate":48000}
         self.valset      = TestDataset(args.dataset['train'], valid=args.dataset['val'], **self.kwargs)
         self.val_loader  = DataLoader(self.valset, batch_size=1, shuffle=False)
         self.testset     = TestDataset(args.dataset['test'], **self.kwargs)
