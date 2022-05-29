@@ -47,8 +47,8 @@ class TempoAugment(nn.Module):
 
     def tempo_effect(self, input):
         tempo   = np.random.uniform(0.9 ,1.1)
-        effects = [['tempo', f'{tempo:.5f}'] ,['rate', '16000']]
-        output  = torchaudio.sox_effects.apply_effects_tensor(input, 16000, effects)[0]
+        effects = [['tempo', f'{tempo:.5f}'] ,['rate', '48000']]
+        output  = torchaudio.sox_effects.apply_effects_tensor(input, 48000, effects)[0]
         return output
         
     def forward(self, wav):
@@ -88,8 +88,8 @@ class SpeedAugment(nn.Module):
     
     def speed_effect(self, input):
         speed   = np.random.uniform(0.9 ,1.1)
-        effects = [['speed', f'{speed:.5f}'] ,['rate', '16000']]
-        output  = torchaudio.sox_effects.apply_effects_tensor(input, 16000, effects)[0]
+        effects = [['speed', f'{speed:.5f}'] ,['rate', '48000']]
+        output  = torchaudio.sox_effects.apply_effects_tensor(input, 48000, effects)[0]
         return output 
 
     def forward(self, wav):
