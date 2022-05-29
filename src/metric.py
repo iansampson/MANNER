@@ -68,19 +68,19 @@ def eval_composite(ref_wav, deg_wav):
     deg_wav = deg_wav[:len_]
 
     # Compute WSS measure
-    wss_dist_vec = wss(ref_wav, deg_wav, 16000)
+    wss_dist_vec = wss(ref_wav, deg_wav, 48000)
     wss_dist_vec = sorted(wss_dist_vec, reverse=False)
     wss_dist     = np.mean(wss_dist_vec[:int(round(len(wss_dist_vec) * alpha))])
 
     # Compute LLR measure
-    LLR_dist = llr(ref_wav, deg_wav, 16000)
+    LLR_dist = llr(ref_wav, deg_wav, 48000)
     LLR_dist = sorted(LLR_dist, reverse=False)
     LLRs     = LLR_dist
     LLR_len  = round(len(LLR_dist) * alpha)
     llr_mean = np.mean(LLRs[:LLR_len])
 
     # Compute the SSNR
-    snr_mean, segsnr_mean = SSNR(ref_wav, deg_wav, 16000)
+    snr_mean, segsnr_mean = SSNR(ref_wav, deg_wav, 48000)
     segSNR = np.mean(segsnr_mean)
 
     # Compute the PESQ
@@ -137,10 +137,10 @@ def lpcoeff(speech_frame, model_order):
 
 # ---------------------- Speech Quality Metric ----------------------------- #
 def PESQ(ref_wav, deg_wav):
-    rate = 16000 
+    rate = 48000 
     return pesq(rate, ref_wav, deg_wav, 'wb')
 
-def SSNR(ref_wav, deg_wav, srate=16000, eps=1e-10):
+def SSNR(ref_wav, deg_wav, srate=48000, eps=1e-10):
     """ Segmental Signal-to-Noise Ratio Objective Speech Quality Measure
         This function implements the segmental signal-to-noise ratio
         as defined in [1, p. 45] (see Equation 2.12).
