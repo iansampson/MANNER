@@ -23,7 +23,7 @@ def main():
 
     if args.action == 'train':
         
-        kwargs = {"matching": args.dataset['matching'], "sample_rate":16000}
+        kwargs = {"matching": args.dataset['matching'], "sample_rate":48000}
         length = int(args.setting['segment'] * args.setting['sample_rate'])
         stride = int(args.setting['stride'] * args.setting['sample_rate'])
 
