@@ -14,7 +14,7 @@ def get_config():
     parser.add_argument('--matching', type=str, default='sort', help='Matching')
 
     #setting
-    parser.add_argument('--sample_rate', type=int, default=16000, help='Sample rate')
+    parser.add_argument('--sample_rate', type=int, default=48000, help='Sample rate')
     parser.add_argument('--segment', type=int, default=4, help='Segment') # segment signal per 4 seconds
     parser.add_argument('--pad', type=bool, default=True, help='Pad')
     parser.add_argument('--set_stride', type=int, default=1, help='Stride') # segment signal with overlapped 1 second
