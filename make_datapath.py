@@ -9,12 +9,12 @@ from tqdm import tqdm
 from os.path import join as opj
 
 train_json_path  = './data_path/train/'
-clean_train_path = 'resampled train clean path'
-noisy_train_path = 'resampled train noisy path'
+clean_train_path = 'data/clean_trainset_28spk_wav'
+noisy_train_path = 'data/noisy_trainset_28spk_wav'
 
 test_json_path  = './data_path/test/'
-clean_test_path = 'resampled test clean path'
-noisy_test_path = 'resampled test noisy path'
+clean_test_path = 'data/clean_testset_wav'
+noisy_test_path = 'data/noisy_testset_wav'
 
 def get_info(data_path, data_list):
     
